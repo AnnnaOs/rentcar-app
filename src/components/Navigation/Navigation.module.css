@@ -1,0 +1,20 @@
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+.link {
+  color: var(--main);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.link:not(.active):hover {
+  border-bottom-color: var(--button);
+}
+
+.active {
+  color: var(--button-hover);
+}
