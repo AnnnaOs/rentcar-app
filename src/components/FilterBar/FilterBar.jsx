@@ -44,8 +44,23 @@ const FilterBar = ({ onSearch }) => {
       <div className={s.filterGroup}>
         <label>Car mileage / km</label>
         <div className={s.mileageInputs}>
-          <input type="number" placeholder="From" value={mileageFrom} onChange={e => setMileageFrom(e.target.value)} />
-          <input type="number" placeholder="To" value={mileageTo} onChange={e => setMileageTo(e.target.value)} />
+          <input
+            type="number"
+            placeholder="From"
+            value={mileageFrom}
+            onChange={e => setMileageFrom(e.target.value)}
+            className={s.inputFrom}
+            aria-label="Starting mileage"
+          />
+          <div className={s.divider}></div>
+          <input
+            type="number"
+            placeholder="To"
+            value={mileageTo}
+            onChange={e => setMileageTo(e.target.value)}
+            className={s.inputTo}
+            aria-label="Ending mileage"
+          />
         </div>
       </div>
 

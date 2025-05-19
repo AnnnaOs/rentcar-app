@@ -47,9 +47,12 @@
   color: #111;
 }
 
-.mileageInputs input:first-child {
+/* 
+.divider {} */
+
+/* .mileageInputs input:first-child {
   border-right: 1px solid #ccc;
-}
+} */
 
 .mileageInputs input:focus {
   outline: none;

@@ -17,7 +17,6 @@ export const getCars = createAsyncThunk('cars/getCars', async (params, { rejectW
 export const getCarById = createAsyncThunk('cars/getCarById', async (id, { rejectWithValue }) => {
   try {
     const { data } = await api.get(`/cars/${id}`);
-    console.log('✅ Received data from API:', data);
     return data;
   } catch (error) {
     return rejectWithValue(error.message);

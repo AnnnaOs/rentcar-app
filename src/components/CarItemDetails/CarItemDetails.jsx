@@ -41,64 +41,69 @@ const CarItemDetails = () => {
   return (
     <section className={s.section}>
       <div className={s.container}>
-        <div className={s.top}>
-          <img src={img} alt={`${brand} ${model}`} className={s.image} />
+        <div className={s.contentWrap}>
+          <div className={s.leftSideContent}>
+            <div className={s.imageWrap}>
+              <img src={img} alt={`${brand} ${model}`} className={s.image} />
+            </div>
+
+            <form className={s.form}>
+              <h3>Book your car now</h3>
+              <p className={s.note}>Stay connected! We are always ready to help you.</p>
+              <input type="text" name="name" placeholder="Name*" required />
+              <input type="email" name="email" placeholder="Email*" required />
+              <input type="text" name="date" placeholder="Booking date" />
+              <textarea name="comment" placeholder="Comment"></textarea>
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
           <div className={s.details}>
             <h2 className={s.title}>
               {brand} {model}, {year} <span className={s.id}>Id: {id}</span>
             </h2>
             <p className={s.meta}>
               <Icon name="location" className={s.icon} /> {location}, {country} &nbsp;&nbsp;
-              <PiSteeringWheelFill /> {mileage.toLocaleString()} km
+              {mileage.toLocaleString()} km
             </p>
             <p className={s.price}>${rentalPrice}</p>
             <p className={s.description}>{description}</p>
 
-            <h2 className={s.subtitle}>Rental Conditions:</h2>
+            <h3 className={s.subtitle}>Rental Conditions:</h3>
             <ul className={s.list}>
               {rentalConditions?.map((cond, idx) => (
                 <li key={idx}>
-                  <FaCheckCircle className={s.icon} /> {cond}
+                  <Icon name="check-circle" className={s.icon} /> {cond}
                 </li>
               ))}
             </ul>
 
-            <h2 className={s.subtitle}>Car Specifications:</h2>
+            <h3 className={s.subtitle}>Car Specifications:</h3>
             <ul className={s.list}>
               <li>
-                <PiCalendarBlank className={s.icon} /> Year: {year}
+                <Icon name="calendar" className={s.icon} /> Year: {year}
               </li>
               <li>
-                <FaCar className={s.icon} /> Type: {type}
+                <Icon name="car" className={s.icon} /> Type: {type}
               </li>
               <li>
-                <MdOutlineLocalGasStation className={s.icon} /> Fuel Consumption: {fuelConsumption}
+                <Icon name="fuel-pump" className={s.icon} /> Fuel Consumption: {fuelConsumption}
               </li>
               <li>
-                <BsSpeedometer2 className={s.icon} /> Engine Size: {engineSize}
+                <Icon name="gear" className={s.icon} /> Engine Size: {engineSize}
               </li>
             </ul>
 
-            <h2 className={s.subtitle}>Accessories and functionalities:</h2>
+            <h3 className={s.subtitle}>Accessories and functionalities:</h3>
             <ul className={s.list}>
               {accessories?.map((item, idx) => (
                 <li key={idx}>
-                  <FaCheckCircle className={s.icon} /> {item}
+                  <Icon name="check-circle" className={s.icon} /> {item}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-
-        <form className={s.form}>
-          <h2>Book your car now</h2>
-          <p className={s.note}>Stay connected! We are always ready to help you.</p>
-          <input type="text" name="name" placeholder="Name*" required />
-          <input type="email" name="email" placeholder="Email*" required />
-          <input type="text" name="date" placeholder="Booking date" />
-          <textarea name="comment" placeholder="Comment"></textarea>
-          <button type="submit">Send</button>
-        </form>
       </div>
     </section>
   );

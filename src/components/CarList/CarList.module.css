@@ -1,11 +1,14 @@
 .wrapper {
-  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 56px;
+
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px 48px;
+  gap: 48px 32px;
 
   /* list-style: none;
   padding: 0;
