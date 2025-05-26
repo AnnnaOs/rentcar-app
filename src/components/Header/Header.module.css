@@ -1,20 +1,10 @@
 .header {
   background-color: var(--badges);
   border-bottom: 1px solid var(--badges);
-  padding: 24px 120px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 24px 0;
 }
 
 .content {
   display: flex;
   justify-content: space-between;
-}
-
-.logoIcon {
-  width: 104px;
-  height: 16px;
 }

@@ -1,1 +1,1 @@
-export const selectFavorites = state => state.favorites.cars || [];
+export const selectFavorites = state => state.favorites.cars;

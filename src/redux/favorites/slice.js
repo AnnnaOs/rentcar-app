@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  cars: JSON.parse(localStorage.getItem('favorites')) || [],
+  cars: [],
 };
 
 const favoritesSlice = createSlice({
@@ -9,13 +9,15 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     toggleFavorite: (state, { payload }) => {
-      const exists = state.cars.some(car => car.id === payload.id);
-      if (exists) {
-        state.cars = state.cars.filter(car => car.id !== payload.id);
+      const car = payload;
+      if (!car || !car.id) return;
+
+      const index = state.cars.findIndex(item => item?.id === car.id);
+      if (index !== -1) {
+        state.cars.splice(index, 1);
       } else {
-        state.cars.push(payload);
+        state.cars.push(car);
       }
-      localStorage.setItem('favorites', JSON.stringify(state.cars));
     },
   },
 });

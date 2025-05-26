@@ -1,6 +1,7 @@
-import CarItemDetails from '../../components/CarItemDetails/CarItemDetails';
+import CatalogItemDetails from '../../components/CatalogItemDetails/CatalogItemDetails';
 
 const CarPage = () => {
-  return <CarItemDetails />;
+  return <CatalogItemDetails />;
 };
+
 export default CarPage;

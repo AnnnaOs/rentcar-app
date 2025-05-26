@@ -1,0 +1,28 @@
+.catalogSection {
+  padding-top: 56px;
+}
+
+.noResultsContent {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px 32px;
+}
+
+.item {
+  width: 276px;
+  height: 424px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background-color: var(--white);
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: scale(1.02);
+}

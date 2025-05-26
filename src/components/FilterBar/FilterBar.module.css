@@ -1,73 +1,89 @@
-.filterBar {
+.filterBarForm {
+  max-width: 1440px;
+  padding: 84px 258px 0;
+  margin: 0 auto;
   display: flex;
   gap: 16px;
   justify-content: center;
   align-items: flex-end;
   flex-wrap: nowrap;
-
 }
 
-.filterGroup {
+.filterSelectWrap {
   display: flex;
   flex-direction: column;
-  font-size: 14px;
-  color: #8e8e93;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  flex: 1;
+  max-width: 204px;
 }
 
-.filterGroup select,
-.filterGroup input {
-  margin-top: 5px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: none;
-  background-color: var(--inputs);
-  font-size: 16px;
-  max-width: 200px;
-  color: #111;
-  appearance: none;
+.label {
+  font-family: var(--font-family);
+  font-size: 12px;
+  line-height: 1.33333;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+
+.filterMileageWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  flex: 1;
+  max-width: 320px;
 }
 
 .mileageInputs {
   display: flex;
-  width: 320px;
-  height: 68px;
-  background-color: var(--inputs);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
-  border: none;
 }
 
 .mileageInputs input {
   flex: 1;
-  width: 160px;
-  padding: 0 16px;
   border: none;
-  background: none;
-  font-size: 16px;
-  color: #111;
+  background-color: var(--inputs);
+  height: 44px;
+  max-width: 160px;
+  padding: 12px 24px;
 }
 
-/* 
-.divider {} */
+.mileageInputs input::placeholder {
+  display: flex;
+  color: var(--main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+}
 
-/* .mileageInputs input:first-child {
-  border-right: 1px solid #ccc;
-} */
+.mileageInputs input:first-child {
+  border-right: 1px solid var(--gray-light);
+}
 
 .mileageInputs input:focus {
   outline: none;
 }
 
 .searchButton {
-  padding: 12px 51px;
-  border: none;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 50px;
+  height: 44px;
   background-color: var(--button);
   color: var(--white);
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
-  height: 44px;
+  font-weight: 600;
+  transition: background-color var(--transition);
 }
 
 .searchButton:hover {
-  background-color: #265edb;
+  background-color: var(--button-hover);
 }

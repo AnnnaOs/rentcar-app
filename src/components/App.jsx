@@ -1,5 +1,7 @@
-import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { ToastContainer, Zoom } from 'react-toastify';
+
 import Loader from './Loader/Loader';
 import Layout from './Layout/Layout';
 
@@ -20,6 +22,11 @@ const App = () => {
           </Route>
         </Routes>
       </Suspense>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        transition={Zoom}
+      />
     </>
   );
 };

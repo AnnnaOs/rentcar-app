@@ -5,14 +5,21 @@
   gap: 32px;
 }
 
+.navItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
 .link {
   color: var(--main);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
+  transition: color 0.3s;
 }
 
 .link:not(.active):hover {
-  border-bottom-color: var(--button);
+  color: var(--button-hover);
 }
 
 .active {

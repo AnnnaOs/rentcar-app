@@ -1,0 +1,70 @@
+.noResultsContent {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  background-color: var(--inputs);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(77, 110, 247, 0.25);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.message {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.partOne {
+  color: var(--main);
+  font-weight: 500;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.partTwo {
+  color: var(--button);
+  font-weight: 600;
+  animation: pulse 2.5s ease-in-out infinite;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(77, 110, 247, 0.7);
+  }
+
+  50% {
+    opacity: 0.7;
+    text-shadow: 0 0 16px rgba(77, 110, 247, 1);
+  }
+}

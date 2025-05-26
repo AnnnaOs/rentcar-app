@@ -1,14 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getCars, getCarById } from './operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { getCars, getBrands, getCarById } from './operations';
 
 const initialState = {
   cars: [],
+  brands: [],
   carCurrent: null,
+  page: 1,
+  totalPages: null,
   isLoading: false,
   isError: null,
-  page: 1,
-  totalCars: null,
-  totalPages: null,
 };
 
 const carsSlice = createSlice({
@@ -17,9 +17,9 @@ const carsSlice = createSlice({
   reducers: {
     resetCars: state => {
       state.cars = [];
+    },
+    resetPage: state => {
       state.page = 1;
-      state.totalCars = null;
-      state.totalPages = null;
     },
     incrementPage: state => {
       state.page += 1;
@@ -27,39 +27,39 @@ const carsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(getCars.pending, state => {
-        state.isLoading = true;
-        state.isError = null;
-      })
       .addCase(getCars.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        if (state.page === 1) {
-          state.cars = payload.cars;
-        } else {
-          state.cars.push(...payload.cars);
-        }
-        state.totalCars = payload.totalCars;
+        const newCars = payload.cars.filter(
+          car => !state.cars.some(existing => existing.id === car.id)
+        );
+        state.cars.push(...newCars);
         state.totalPages = payload.totalPages;
       })
-      .addCase(getCars.rejected, (state, { payload }) => {
+      .addCase(getBrands.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isError = payload;
-      })
-      .addCase(getCarById.pending, state => {
-        state.isLoading = true;
-        state.isError = null;
+        state.brands = payload;
       })
       .addCase(getCarById.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.carCurrent = payload;
       })
-      .addCase(getCarById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.isError = payload;
-      });
+      .addMatcher(
+        isAnyOf(getCars.pending, getBrands.pending, getCarById.pending),
+        state => {
+          state.isLoading = true;
+          state.isError = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(getCars.rejected, getBrands.rejected, getCarById.rejected),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.isError = payload || null;
+        }
+      );
   },
 });
 
-export const { resetCars, incrementPage } = carsSlice.actions;
+export const { resetPage, resetCars, incrementPage } = carsSlice.actions;
 
 export const carsReducer = carsSlice.reducer;

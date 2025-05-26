@@ -4,11 +4,9 @@ import s from './Hero.module.css';
 const Hero = () => {
   return (
     <section className={s.hero}>
-      <div className={s.container}>
+      <div className={s.heroContainer}>
         <h1 className={s.title}>Find your perfect rental car</h1>
-        <h2 className={s.subTitle}>
-          Reliable and budget-friendly rentals for any journey
-        </h2>
+        <h2 className={s.subTitle}>Reliable and budget-friendly rentals for any journey</h2>
         <Link to="/catalog" className={s.heroBtn}>
           View Catalog
         </Link>
