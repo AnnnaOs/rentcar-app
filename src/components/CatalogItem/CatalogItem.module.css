@@ -6,11 +6,6 @@
   overflow: hidden;
   height: 424px;
   width: 100%;
-  transition: all var(--transition);
-}
-
-.card:hover {
-  scale: 1.02;
 }
 
 .imageWrapper {
@@ -51,7 +46,7 @@
 }
 
 .info {
-  padding: 0;
+  padding: 0 5px;
   display: flex;
   flex-direction: column;
   margin-top: 16px;
@@ -104,7 +99,7 @@
 }
 
 .readMoreBtn {
-  margin-top: 28px;
+  margin-top: 10px;
   display: inline-block;
   padding: 12px 97px;
   width: 100%;
@@ -120,4 +115,22 @@
 
 .readMoreBtn:hover {
   background-color: var(--button-hover);
+}
+
+@media screen and (min-width: 1220px) {
+  .card {
+    transition: all var(--transition);
+  }
+
+  .card:hover {
+    scale: 1.02;
+  }
+
+  .info {
+    flex-grow: 1;
+  }
+
+  .readMoreBtn {
+    margin-top: 0;
+  }
 }
