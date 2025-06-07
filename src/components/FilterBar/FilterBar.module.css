@@ -1,12 +1,10 @@
 .filterBarForm {
-  max-width: 1440px;
-  padding: 84px 258px 0;
-  margin: 0 auto;
+  padding: 15px 15px 0;
   display: flex;
+  flex-direction: column;
   gap: 16px;
+  align-items: center;
   justify-content: center;
-  align-items: flex-end;
-  flex-wrap: nowrap;
 }
 
 .filterSelectWrap {
@@ -26,7 +24,6 @@
   color: var(--gray);
   font-weight: 400;
 }
-
 
 .filterMileageWrap {
   display: flex;
@@ -70,6 +67,7 @@
 }
 
 .searchButton {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,4 +84,21 @@
 
 .searchButton:hover {
   background-color: var(--button-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .filterBarForm {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .filterBarForm {
+    padding-top: 84px;
+    align-items: end;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 }

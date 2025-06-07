@@ -1,11 +1,13 @@
 .section {
-  padding: 84px 0;
+  padding-top: 40px;
 }
 
 .contentWrap {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 72px;
+  align-items: center;
+  gap: 20px;
 }
 
 .leftSideContent {
@@ -13,12 +15,6 @@
   flex-direction: column;
   gap: 40px;
   max-width: 640px;
-}
-
-.imageWrap {
-  width: 640px;
-  height: 512px;
-  border-radius: 19px;
 }
 
 .image {
@@ -37,7 +33,6 @@
 }
 
 .title {
-  font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
   color: var(--main);
@@ -52,6 +47,18 @@
   margin-left: 16px;
 }
 
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  fill: var(--main);
+  width: 16px;
+  height: 16px;
+}
+
 .price {
   font-weight: 600;
   font-size: 24px;
@@ -60,21 +67,11 @@
   margin: 16px 0 32px;
 }
 
-.icon,
-.iconLocation {
-  width: 16px;
-  height: 16px;
-}
-
-.iconLocation {
-  vertical-align: middle;
-}
-
 .details {
   display: flex;
   flex-direction: column;
-  gap: 110px;
-  margin-top: auto;
+  gap: 40px;
+  margin-top: 60px;
 }
 
 .subtitle {
@@ -99,4 +96,31 @@
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    gap: 70px;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .section {
+    padding: 84px 0;
+  }
+
+  .contentWrap {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 72px;
+  }
+
+  .title {
+    font-weight: 600;
+  }
+
+  .details {
+    gap: 110px;
+    margin-top: auto;
+  }
 }

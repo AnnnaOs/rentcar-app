@@ -1,11 +1,10 @@
 import { Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
+import rentFormValidations from '../../validations/rentFormValidations.js';
 import { useRef } from 'react';
 import { toast } from 'react-toastify';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import clsx from 'clsx';
 
+import CustomDatePicker from '../CustomDatePicker/CustomDatePicker';
 import s from './RentForm.module.css';
 
 const RentForm = () => {
@@ -14,21 +13,9 @@ const RentForm = () => {
   const initialValues = {
     name: '',
     email: '',
-    date: null,
+    dateRange: [null, null],
     comment: '',
   };
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(3, 'Too short!')
-      .max(50, 'Too long!')
-      .required('Name is required'),
-    email: Yup.string()
-      .email('Invalid email format')
-      .required('Email is required'),
-    date: Yup.date().required('Booking date is required'),
-    comment: Yup.string().max(500, 'Comment is too long'),
-  });
 
   const handleSubmit = (values, actions) => {
     actions.resetForm();
@@ -43,10 +30,10 @@ const RentForm = () => {
 
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={rentFormValidations}
         onSubmit={handleSubmit}
       >
-        {({ values, setFieldValue, errors, touched }) => (
+        {({ values, setFieldValue, errors, touched, setFieldTouched }) => (
           <Form className={s.form}>
             <label className={s.label} htmlFor="name">
               <Field
@@ -72,19 +59,15 @@ const RentForm = () => {
                 <span className={s.error}>{errors.email}</span>
               )}
             </label>
-            <label className={s.label} htmlFor="date">
-              <DatePicker
-                id="date"
-                name="date"
-                selected={values.date}
-                onChange={date => setFieldValue('date', date)}
-                minDate={new Date()}
-                placeholderText="Booking date*"
-                className={clsx(s.field, s.dateInput)}
-                dateFormat="dd.MM.yyyy"
+            <label className={s.label} htmlFor="dateRange">
+              <CustomDatePicker
+                value={values.dateRange}
+                onChange={update => setFieldValue('dateRange', update)}
+                onBlur={() => setFieldTouched('dateRange', true)}
+                error={touched.dateRange && errors.dateRange}
               />
-              {touched.date && errors.date && (
-                <span className={s.error}>{errors.date}</span>
+              {touched.dateRange && errors.dateRange && (
+                <span className={s.error}>{errors.dateRange}</span>
               )}
             </label>
             <label className={s.label} htmlFor="comment">

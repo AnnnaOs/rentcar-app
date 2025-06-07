@@ -29,38 +29,24 @@
 }
 
 .field {
-  border-radius: 12px;
-  padding: 12px 20px;
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 48px;
   background-color: var(--inputs);
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  color: var(--main);
   outline: none;
   border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
 }
 
 .field::placeholder {
+  font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   color: var(--gray);
 }
-
-@media (any-hover: hover) {
-  .field:hover {
-    box-shadow: inset 0 0 0 1px var(--button-hover);
-  }
-}
-
-.field:focus {
-  box-shadow: inset 0 0 0 2px var(--button-hover);
-}
-
 
 .textarea {
   min-height: 88px;
@@ -96,30 +82,9 @@
   background-color: var(--button-hover);
 }
 
-.dateInput {
-  position: relative;
-}
-
-.dateInput input::placeholder {
-  color: var(--gray);
-  opacity: 1;
-}
-
-.dateInput .dateIcon {
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.dateInput:focus-within .dateIcon {
-  opacity: 1;
-}
-
-@media (any-hover: hover) {
-  .dateInput:hover {
-    box-shadow: inset 0 0 0 1px var(--button-hover);
-  }
-}
-
-.dateInput:focus-within {
-  box-shadow: inset 0 0 0 2px var(--button-hover);
+.field:focus-within,
+.dateInput:focus-within,
+.textarea:focus-within {
+  outline: none;
+  background-color: var(--badges);
 }

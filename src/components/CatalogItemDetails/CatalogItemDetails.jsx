@@ -61,10 +61,13 @@ const CarItemDetails = () => {
                 {brand} {model}, {year}
                 <span className={s.publicId}>Id: {publicId}</span>
               </h2>
-              <p className={s.meta}>
-                <Icon name="location" className={s.iconLocation} /> {location}, {country} &nbsp;&nbsp;Mileage:{' '}
-                {mileage.toLocaleString()} km
-              </p>
+              <div className={s.meta}>
+                <Icon name="location" className={s.icon} />
+                <p className={s.metaText}>
+                  {location}, {country} &nbsp;&nbsp;Mileage:{' '}
+                  {mileage.toLocaleString()} km
+                </p>
+              </div>
               <p className={s.price}>${rentalPrice}</p>
 
               <p className={s.description}>{description}</p>
@@ -91,10 +94,12 @@ const CarItemDetails = () => {
                     <Icon name="car" className={s.icon} /> Type: {type}
                   </li>
                   <li className={s.item}>
-                    <Icon name="fuel-pump" className={s.icon} /> Fuel Consumption: {fuelConsumption}
+                    <Icon name="fuel-pump" className={s.icon} /> Fuel
+                    Consumption: {fuelConsumption}
                   </li>
                   <li className={s.item}>
-                    <Icon name="gear" className={s.icon} /> Engine Size: {engineSize}
+                    <Icon name="gear" className={s.icon} /> Engine Size:{' '}
+                    {engineSize}
                   </li>
                 </ul>
               </div>

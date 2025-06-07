@@ -14,14 +14,7 @@ body {
 }
 
 .container {
-  max-width: 1440px;
-  padding: 0 120px;
-  margin: 0 auto;
-}
-
-
-/* .container {
-  max-width: 380px;
+  max-width: 375px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -29,14 +22,14 @@ body {
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 32px;
+    padding: 0 24px;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1220px) {
   .container {
-    max-width: 1200px;
-    padding: 0 80px;
+    max-width: 1220px;
+    padding: 0 10px;
   }
 }
 
@@ -45,4 +38,4 @@ body {
     max-width: 1440px;
     padding: 0 120px;
   }
-} */
+}
