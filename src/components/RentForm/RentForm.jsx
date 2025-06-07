@@ -61,6 +61,7 @@ const RentForm = () => {
             </label>
             <label className={s.label} htmlFor="dateRange">
               <CustomDatePicker
+                name="dateRange"
                 value={values.dateRange}
                 onChange={update => setFieldValue('dateRange', update)}
                 onBlur={() => setFieldTouched('dateRange', true)}

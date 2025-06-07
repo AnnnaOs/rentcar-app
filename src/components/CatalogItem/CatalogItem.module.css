@@ -6,6 +6,11 @@
   overflow: hidden;
   height: 424px;
   width: 100%;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  scale: 1.02;
 }
 
 .imageWrapper {
@@ -118,14 +123,6 @@
 }
 
 @media screen and (min-width: 1220px) {
-  .card {
-    transition: all var(--transition);
-  }
-
-  .card:hover {
-    scale: 1.02;
-  }
-
   .info {
     flex-grow: 1;
   }
